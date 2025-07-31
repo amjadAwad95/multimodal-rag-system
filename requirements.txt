@@ -1,1 +1,4 @@
 unstructured[all-docs]
+langchain
+langchain_community
+langchain_unstructured
