@@ -5,3 +5,4 @@ langchain_unstructured
 langchain-groq
 langchain_huggingface
 transformers
+langchain-ollama
