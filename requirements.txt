@@ -6,3 +6,4 @@ langchain-groq
 langchain_huggingface
 transformers
 langchain-ollama
+langchain_google_genai
