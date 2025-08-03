@@ -9,3 +9,4 @@ langchain-ollama
 langchain_google_genai
 langchain_core
 langchain-chroma
+sentence-transformers
