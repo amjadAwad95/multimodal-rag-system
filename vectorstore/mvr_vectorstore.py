@@ -39,14 +39,17 @@ class MVRVectorStore(BaseVectorStore):
             Document(page_content=table, metadata={"doc_id": tables_ids[i]}) for i, table in enumerate(summarized_documents["tables"])
         ]
 
-        self.retriever.vectorstore.add_documents(summary_texts)
-        self.retriever.docstore.mset(list(zip(texts_ids, raw_documents["texts"])))
+        if len(summary_texts) > 0:
+            self.retriever.vectorstore.add_documents(summary_texts)
+            self.retriever.docstore.mset(list(zip(texts_ids, raw_documents["texts"])))
 
-        self.retriever.vectorstore.add_documents(summary_images)
-        self.retriever.docstore.mset(list(zip(images_ids, raw_documents["images"])))
+        if len(summary_images) > 0:
+            self.retriever.vectorstore.add_documents(summary_images)
+            self.retriever.docstore.mset(list(zip(images_ids, raw_documents["images"])))
 
-        self.retriever.vectorstore.add_documents(summary_tables)
-        self.retriever.docstore.mset(list(zip(tables_ids, raw_documents["tables"])))
+        if len(summary_tables) > 0:
+            self.retriever.vectorstore.add_documents(summary_tables)
+            self.retriever.docstore.mset(list(zip(tables_ids, raw_documents["tables"])))
 
 
     def retrieve(self, query):
