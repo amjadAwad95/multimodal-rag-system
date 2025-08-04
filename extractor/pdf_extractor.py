@@ -15,7 +15,7 @@ class PdfExtractor(BaseExtractor):
 
         for chunk in chunks:
             if "CompositeElement" in str(type(chunk)):
-                texts.append(chunk)
+                texts.append(chunk.text)
 
         return texts
 
@@ -44,6 +44,6 @@ class PdfExtractor(BaseExtractor):
             else:
                 for element in chunk.metadata.orig_elements:
                     if "Table" in str(type(element)):
-                        tables.append(element)
+                        tables.append(element.metadata.text_as_html)
 
         return tables

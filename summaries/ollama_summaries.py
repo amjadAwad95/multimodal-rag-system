@@ -47,9 +47,7 @@ class OllamaSummaries(BaseSummaries):
         if self.summaries_tables:
             return self.summaries_tables
 
-        tables_html = [table.metadata.text_as_html for table in tables]
-
-        self.summaries_tables = self.ollama_chain.batch(tables_html)
+        self.summaries_tables = self.ollama_chain.batch(tables)
         return self.summaries_tables
 
     def images_summaries(self, images):
